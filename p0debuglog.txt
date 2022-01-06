@@ -1,0 +1,26 @@
+reakpoint 1 at 0x63e: file p0final.c, line 4.
+(gdb) r
+Starting program: /home/runner/pps-test1-PintaRam-3/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p0final.c:4
+4   { printf("my name is pintaram\n");
+(gdb) n
+my name is pintaram
+5   return 0;
+(gdb) n
+6   }
+(gdb) n
+__libc_start_main (main=0x56377900063a <main>, argc=1, argv=0x7ffc90f5b268, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffc90f5b258) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 89] will be killed.
+
+Quit anyway? (y or n) y
+ ./a.out
+my name is pintaram
+ 
