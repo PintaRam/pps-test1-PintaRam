@@ -1,4 +1,4 @@
-gcc -g p1final.c
+ gcc -g p1final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -18,7 +18,7 @@ Reading symbols from a.out...done.
 (gdb) b main
 Breakpoint 1 at 0x722: file p1final.c, line 4.
 (gdb) r
-Starting program: /home/runner/pps-test1-PintaRam-4/a.out 
+Starting program: /home/runner/pps-test1-PintaRam-8/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
 Breakpoint 1, main () at p1final.c:4
@@ -28,32 +28,28 @@ Breakpoint 1, main () at p1final.c:4
 (gdb) n
 7   scanf("%d",&num1);
 (gdb) n
-enter the value of num1=n
+enter the value of num1=7
 8   printf("enter the value of num2=");
 (gdb) n
 9   scanf("%f",&num2);
 (gdb) n
+enter the value of num2=7
 10  sum = num1 + num2;
 (gdb) n
 11  printf("addition of %d+%f is=%f\n",num1,num2,sum);
 (gdb) n
-enter the value of num2=addition of 22002+0.000000 is=22002.000000
+addition of 7+7.000000 is=14.000000
 12  return 0;
 (gdb) n
 13  }(gdb) n
-__libc_start_main (main=0x55f20fc0071a <main>, argc=1, 
-    argv=0x7ffc2733ffc8, init=<optimized out>, 
-    fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffc2733ffb8) at ../csu/libc-start.c:344
+__libc_start_main (main=0x55af8de0071a <main>, argc=1, argv=0x7ffc7db66148, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffc7db66138) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 253] will be killed.
+    Inferior 1 [process 340] will be killed.
 
 Quit anyway? (y or n) y
- ./a.out
-enter the value of num1=3
-enter the value of num2=4
-addition of 3+4.000000 is=7.000000
  
