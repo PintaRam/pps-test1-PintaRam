@@ -1,0 +1,68 @@
+gcc -g p4original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7b1: file p4original.c, line 17.
+(gdb) r
+Starting program: /home/runner/pps-test1-PintaRam-12/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p4original.c:17
+17  { int a, b, sum;
+(gdb) n
+18  input( &a, &b);
+(gdb) s
+input (a=0x7fff59c39b5c, b=0x7fff59c39b60) at p4original.c:4
+4     printf("enter the two numbers");
+(gdb) n
+5     scanf("%d%d",a,b);
+(gdb) n
+enter the two numbers67 78
+7   }
+(gdb) n
+main () at p4original.c:19
+19  add(a,b, &sum);
+(gdb) s
+add (a=67, b=78, sum=0x7fff59c39b64) at p4original.c:10
+10    *sum= a+b;
+(gdb) n
+11  }
+(gdb) n
+main () at p4original.c:20
+20  output(a,b, sum);
+(gdb) s
+output (a=67, b=78, sum=145) at p4original.c:14
+14    printf("addition of %d and %d is %d\n",a,b,sum);
+(gdb) n
+addition of 67 and 78 is 145
+15  }
+(gdb) n
+main () at p4original.c:21
+21  return 0;
+(gdb) n
+22  }(gdb) n
+__libc_start_main (main=0x55b11fa007a9 <main>, argc=1, argv=0x7fff59c39c58, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fff59c39c48) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 299] will be killed.
+
+Quit anyway? (y or n) y
+ 
