@@ -1,0 +1,182 @@
+gcc -g p5final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x890: file p5final.c, line 31.
+(gdb) r
+Starting program: /home/runner/pps-test1-PintaRam-13/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5final.c:31
+31    a = input();
+(gdb) s
+input () at p5final.c:3
+3   {
+(gdb) n
+5     printf("enter the number\n");
+(gdb) n
+enter the number
+6     scanf("%d",&num);
+(gdb) n
+67
+7     return num;
+(gdb) n
+9   }
+(gdb) n
+main () at p5final.c:32
+32    b = input();
+(gdb) s
+input () at p5final.c:3
+3   {
+(gdb) n
+5     printf("enter the number\n");
+(gdb) n
+enter the number
+6     scanf("%d",&num);
+(gdb) n
+88
+7     return num;
+(gdb) n
+9   }
+(gdb) n
+main () at p5final.c:33
+33    c = input();
+(gdb) s
+input () at p5final.c:3
+3   {
+(gdb) n
+5     printf("enter the number\n");
+(gdb) n
+enter the number
+6     scanf("%d",&num);
+(gdb) n
+49
+7     return num;
+(gdb) n
+9   }
+(gdb) n
+main () at p5final.c:34
+34   max=cmp(a, b, c);
+(gdb) s
+cmp (a=67, b=88, c=49) at p5final.c:13
+13  if(a>b&&a>c)
+(gdb) n
+15  else if(b>a&&b>c)
+(gdb) n
+ 
+ gcc -g p5original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x831: file p5original.c, line 26.
+(gdb) r
+Starting program: /home/runner/pps-test1-PintaRam-13/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5original.c:26
+26    a = input();
+(gdb) s
+input () at p5original.c:4
+4   {
+(gdb) n
+6     printf("enter the number\n");
+(gdb) n
+enter the number
+7     scanf("%d",&num);
+(gdb) n
+67
+8     return num;
+(gdb) n
+10  }
+(gdb) n
+main () at p5original.c:27
+27    b = input();
+(gdb) s
+input () at p5original.c:4
+4   {
+(gdb) n
+6     printf("enter the number\n");
+(gdb) n
+enter the number
+7     scanf("%d",&num);
+(gdb) n
+78
+8     return num;
+(gdb) n
+10  }
+(gdb) n
+main () at p5original.c:28
+28    c = input();
+(gdb) s
+input () at p5original.c:4
+4   {
+(gdb) n
+6     printf("enter the number\n");
+(gdb) n
+enter the number
+7     scanf("%d",&num);
+(gdb) n
+99
+8     return num;
+(gdb) n
+10  }
+(gdb) n
+main () at p5original.c:29
+29   max=cmp(a, b, c);
+(gdb) s
+cmp (a=67, b=78, c=99) at p5original.c:13
+13    int lar= a;
+(gdb) n
+14      if(b>lar)
+(gdb) n
+15     lar=b;
+(gdb) n
+16     if(c>lar)
+(gdb) n
+17     lar=c;
+(gdb) n
+18  }
+(gdb) n
+main () at p5original.c:30
+30  output(a, b, c, max);
+(gdb) s
+output (a=67, b=78, c=99, max=99) at p5original.c:21
+21   printf("largest among the %d, %d and %d is=%d\n",a,b, c,max);
+(gdb) n
+largest among the 67, 78 and 99 is=99
+22  }
+(gdb) n
+main () at p5original.c:31
+31  return 0;
+(gdb) n
+32  }(gdb) n
+__libc_start_main (main=0x55c1caa00829 <main>, argc=1, argv=0x7fffd0bc0ab8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
