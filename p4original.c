@@ -1,22 +1,33 @@
+/*program to find largest amongest three numbers using pass by value*/
 #include<stdio.h>
-void input(int *a, int *b)
+
+int input()
 {
-  printf("enter the two numbers");
-  scanf("%d%d",a,b);
+  int num;
+  printf("enter the number\n");
+  scanf("%d",&num);
+  return num;
 
 }
-void add(int a, int b, int*sum)
+int cmp(int a, int b, int c)
 {
-  *sum= a+b;
+  int lar= a;
+    if(b>lar)
+   lar=b;
+   if(c>lar)
+   lar=c;
 }
-void output(int a,int b, int sum)
+void output(int a, int b, int c,int max)
 {
-  printf("addition of %d and %d is %d\n",a,b,sum);
+ printf("largest among the %d, %d and %d is=%d\n",a,b, c,max);
 }
 int main()
-{ int a, b, sum;
-input( &a, &b);
-add(a,b, &sum);
-output(a,b, sum);
+{
+  int a,b,c, max;
+  a = input();
+  b = input();
+  c = input();
+ max=cmp(a, b, c);
+output(a, b, c, max);
 return 0;
 }

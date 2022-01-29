@@ -1,29 +1,23 @@
-// add two numbers
+// add two numbers using pass by reference
 #include<stdio.h>
-int input()
+void input(int *a, int *b)
 {
-   int num;
-  printf("enter the value =");
-scanf("%d",&num);
-return num;
-}
-int add(int a, int b)
-{
-float sum;
-sum = a + b;
-}
-void output(int a, int b, float sum)
-{
-printf("addition of %d+%d is=%f\n",a,b,sum);
+  printf("enter the two numbers");
+  scanf("%d%d",a,b);
 
 }
-int main()
+void add(int a, int b, int*sum)
 {
-  int num1, num2 ;
-  float sum;
-  num1=input();
-  num2=input();
-  sum=add(num1, num2);
-  output(num1, num2, sum);
-  return 0;
+  *sum= a+b;
+}
+void output(int a,int b, int sum)
+{
+  printf("addition of %d and %d is %d\n",a,b,sum);
+}
+int main()
+{ int a, b, sum;
+input( &a, &b);
+add(a,b, &sum);
+output(a,b, sum);
+return 0;
 }

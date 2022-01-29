@@ -1,32 +1,37 @@
+/*program to find largest amongest three numbers using pass by reference*/
 #include<stdio.h>
-
-int input()
+void input(int *a, int*b, int*c)
 {
-  int num;
   printf("enter the number\n");
-  scanf("%d",&num);
-  return num;
+  scanf("%d%d%d",a,b,c);
 
 }
-int cmp(int a, int b, int c)
+void cmp(int a, int b, int c, int *largest)
 {
-  int lar= a;
-    if(b>lar)
-   lar=b;
-   if(c>lar)
-   lar=c;
+if(a>b)
+    if(a>c)
+    
+      *largest = a;
+    else
+      *largest= c;
+   
+if(b>c)
+   
+     *largest= b;
+   else
+     *largest= c;
+      
 }
-void output(int a, int b, int c,int max)
+void output(int a, int b, int c,int largest)
 {
- printf("largest among the %d, %d and %d is=%d\n",a,b, c,max);
+ printf("largest among the %d, %d and %d is=%d\n",a,b, c,largest);
+
 }
 int main()
 {
-  int a,b,c, max;
-  a = input();
-  b = input();
-  c = input();
- max=cmp(a, b, c);
-output(a, b, c, max);
+  int a,b,c, largest;
+ input(&a,&b,&c);
+ cmp(a, b, c, &largest);
+output(a, b, c, largest);
 return 0;
 }

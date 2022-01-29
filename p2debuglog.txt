@@ -1,4 +1,4 @@
- gcc -g p2final.c
+gcc -g p3original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -15,50 +15,66 @@ Find the GDB manual and other documentation resources online at:
 For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
-(gdb) b main 
-Breakpoint 1 at 0x71e: file p2final.c, line 6.
+(gdb) b main
+Breakpoint 1 at 0x7cd: file p3original.c, line 25.
 (gdb) r
 Starting program: /home/runner/pps-test1-PintaRam-8/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2final.c:6
-6     add();
+Breakpoint 1, main () at p3original.c:25
+25    num1=input();
 (gdb) s
-add () at p2final.c:11
-11  {
+input () at p3original.c:4
+4   {
 (gdb) n
-14  printf("enter the value of num1=");
+6     printf("enter the value =");
 (gdb) n
-15  scanf("%d",&num1);
+7   scanf("%d",&num);
 (gdb) n
-enter the value of num1=56
-16  printf("enter the value of num2=");
+enter the value =56
+8   return num;
 (gdb) n
-17  scanf("%f",&num2);
+9   }
 (gdb) n
-enter the value of num2=45
-18  sum = num1 + num2;
+main () at p3original.c:26
+26    num2=input();
+(gdb) s
+input () at p3original.c:4
+4   {
 (gdb) n
-19  printf("addition of %d+%f is=%f\n",num1,num2,sum);
+6     printf("enter the value =");
 (gdb) n
-addition of 56+45.000000 is=101.000000
-20  return 0;
+7   scanf("%d",&num);
 (gdb) n
-21  }
+enter the value =45
+8   return num;
 (gdb) n
-main () at p2final.c:7
-7     return 0;
+9   }
 (gdb) n
-8   }
+main () at p3original.c:27
+27    sum=add(num1, num2);
+(gdb) s
+add (a=56, b=45) at p3original.c:13
+13  sum = a + b;
 (gdb) n
-__libc_start_main (main=0x55834c00071a <main>, argc=1, argv=0x7ffca78695b8, 
-    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffca78695a8) at ../csu/libc-start.c:344
+14  }
+(gdb) n
+main () at p3original.c:28
+28    output(num1, num2, sum);
+(gdb) n
+addition of 56+45 is=101.000000
+29    return 0;
+(gdb) n
+30  }(gdb) n
+__libc_start_main (main=0x561dfe2007c5 <main>, argc=1, 
+    argv=0x7ffda888ce38, init=<optimized out>, 
+    fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffda888ce28) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 479] will be killed.
+    Inferior 1 [process 247] will be killed.
 
 Quit anyway? (y or n) y
  

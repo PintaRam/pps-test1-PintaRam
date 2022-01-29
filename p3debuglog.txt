@@ -1,4 +1,4 @@
-gcc -g p3original.c
+gcc -g p4original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,65 +16,53 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x7cd: file p3original.c, line 25.
+Breakpoint 1 at 0x7b1: file p4original.c, line 17.
 (gdb) r
-Starting program: /home/runner/pps-test1-PintaRam-8/a.out 
+Starting program: /home/runner/pps-test1-PintaRam-12/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p3original.c:25
-25    num1=input();
+Breakpoint 1, main () at p4original.c:17
+17  { int a, b, sum;
+(gdb) n
+18  input( &a, &b);
 (gdb) s
-input () at p3original.c:4
-4   {
+input (a=0x7fff59c39b5c, b=0x7fff59c39b60) at p4original.c:4
+4     printf("enter the two numbers");
 (gdb) n
-6     printf("enter the value =");
+5     scanf("%d%d",a,b);
 (gdb) n
-7   scanf("%d",&num);
+enter the two numbers67 78
+7   }
 (gdb) n
-enter the value =56
-8   return num;
-(gdb) n
-9   }
-(gdb) n
-main () at p3original.c:26
-26    num2=input();
+main () at p4original.c:19
+19  add(a,b, &sum);
 (gdb) s
-input () at p3original.c:4
-4   {
+add (a=67, b=78, sum=0x7fff59c39b64) at p4original.c:10
+10    *sum= a+b;
 (gdb) n
-6     printf("enter the value =");
+11  }
 (gdb) n
-7   scanf("%d",&num);
-(gdb) n
-enter the value =45
-8   return num;
-(gdb) n
-9   }
-(gdb) n
-main () at p3original.c:27
-27    sum=add(num1, num2);
+main () at p4original.c:20
+20  output(a,b, sum);
 (gdb) s
-add (a=56, b=45) at p3original.c:13
-13  sum = a + b;
+output (a=67, b=78, sum=145) at p4original.c:14
+14    printf("addition of %d and %d is %d\n",a,b,sum);
 (gdb) n
-14  }
+addition of 67 and 78 is 145
+15  }
 (gdb) n
-main () at p3original.c:28
-28    output(num1, num2, sum);
+main () at p4original.c:21
+21  return 0;
 (gdb) n
-addition of 56+45 is=101.000000
-29    return 0;
-(gdb) n
-30  }(gdb) n
-__libc_start_main (main=0x561dfe2007c5 <main>, argc=1, 
-    argv=0x7ffda888ce38, init=<optimized out>, 
-    fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffda888ce28) at ../csu/libc-start.c:344
+22  }(gdb) n
+__libc_start_main (main=0x55b11fa007a9 <main>, argc=1, argv=0x7fff59c39c58, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fff59c39c48) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 247] will be killed.
+    Inferior 1 [process 299] will be killed.
 
 Quit anyway? (y or n) y
  
