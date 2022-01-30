@@ -1,4 +1,4 @@
-gcc -g p6original.c
+ gcc -g p6final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,69 +16,108 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x842: file p6original.c, line 30.
+Breakpoint 1 at 0x857: file p6final.c, line 32.
 (gdb) r
-Starting program: /home/runner/pps-test1-PintaRam-16/a.out 
+Starting program: /home/runner/pps-test1-PintaRam-20/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p6original.c:30
-30  {
-(gdb) b
-Note: breakpoint 1 also set at pc 0x563fd4c00842.
-Breakpoint 2 at 0x563fd4c00842: file p6original.c, line 30.
-(gdb) n
-32   input(&a,&b,&c);
+Breakpoint 1, main () at p6final.c:32
+32    n=input();
 (gdb) s
-input (a=0x7fff59e985c8, b=0x7fff59e985cc, c=0x7fff59e985d0)
-    at p6original.c:4
-4     printf("enter the number\n");
+input () at p6final.c:4
+4   {
 (gdb) n
-enter the number
-5     scanf("%d%d%d",a,b,c);
+6     printf("enter the value of n=\n");
 (gdb) n
-45
-67
-78
-7   }
+enter the value of n=
+7     scanf("%d",&n);
 (gdb) n
-main () at p6original.c:33
-33   cmp(a, b, c, &largest);
+5
+8     return n;
+(gdb) n
+9   }
+(gdb) n
+main () at p6final.c:33
+33    add= sum(n);
 (gdb) s
-cmp (a=45, b=67, c=78, largest=0x7fff59e985d4)
-    at p6original.c:10
-10  if(a>b)
-(gdb) p a
-$1 = 45
-(gdb) p b
-$2 = 67
-(gdb) p c
-$3 = 78
+sum (n=5) at p6final.c:11
+11  { int sum = 0;
 (gdb) n
-17  if(b>c)
+12    for(int i=1;i<=n;i++)
 (gdb) n
-21       *largest= c;
+14      sum = sum+i;
 (gdb) n
-23  }
+12    for(int i=1;i<=n;i++)
 (gdb) n
-main () at p6original.c:34
-34  output(a, b, c, largest);
+14      sum = sum+i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14      sum = sum+i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14      sum = sum+i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14      sum = sum+i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+16    return sum;
+(gdb) n
+17  } 
+(gdb) n
+main () at p6final.c:34
+34    output( n, add);
 (gdb) s
-output (a=45, b=67, c=78, largest=78) at p6original.c:26
-26   printf("largest among the %d, %d and %d is=%d\n",a,b, c,largest);
+output (n=5, add=15) at p6final.c:21
+21      printf("sum of\t");
 (gdb) n
-largest among the 45, 67 and 78 is=78
+23     for(int i=1;i<=n;i++)
+(gdb) n
+25      printf("%d+",i);
+(gdb) n
+23     for(int i=1;i<=n;i++)
+(gdb) n
+25      printf("%d+",i);
+(gdb) n
+23     for(int i=1;i<=n;i++)
+(gdb) n
+25      printf("%d+",i);
+(gdb) n
+23     for(int i=1;i<=n;i++)
+(gdb) n
+25      printf("%d+",i);
+(gdb) n
+23     for(int i=1;i<=n;i++)
+(gdb) n
+25      printf("%d+",i);
+(gdb) n
+23     for(int i=1;i<=n;i++)
+(gdb) n
+27    printf("\b=%d\n",add);
+(gdb) n
+sum of  1+2+3+4+5=15
 28  }
 (gdb) n
-main () at p6original.c:35
-35  return 0;
+main () at p6final.c:35
+35    return 0;
 (gdb) n
 36  }(gdb) n
-__libc_start_main (main=0x563fd4c0083a <main>, argc=1, 
-    argv=0x7fff59e986c8, init=<optimized out>, 
-    fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7fff59e986b8) at ../csu/libc-start.c:344
+__libc_start_main (main=0x556b43e0084f <main>, argc=1, argv=0x7ffd7ed4eba8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffd7ed4eb98) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 125] will be killed.
+    Inferior 1 [process 260] will be killed.
+
+Quit anyway? (y or n) y
+ ./a.out
+enter the value of n=
+5
+sum of  1+2+3+4+5=15
+ 

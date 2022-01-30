@@ -1,5 +1,6 @@
 // add two number using pass by reference
 #include<stdio.h>
+
 void input(int *a, int *b)
 {
   printf("enter the two numbers");

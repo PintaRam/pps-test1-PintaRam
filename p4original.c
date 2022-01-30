@@ -1,6 +1,5 @@
 /*program to find largest amongest three numbers using pass by value*/
 #include<stdio.h>
-
 int input()
 {
   int num;
